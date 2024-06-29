@@ -1,0 +1,40 @@
+{
+  "length" : 200,
+  "width" : 30,
+  "capacityLocation" : {
+    "BOA" : 30,
+    "WOLF" : 30,
+    "FOX":  30,
+    "BEAR": 5,
+    "EAGLE": 20,
+    "HORSE": 20,
+    "DEER": 20,
+    "RABBIT": 150,
+    "MOUSE": 500,
+    "GOAT" : 140,
+    "SHEEP": 140,
+    "BOAR": 50,
+    "BUFFALO": 10,
+    "DUCK": 200,
+    "CATERPILLAR": 1000,
+    "PLANTS" : 200
+  },
+  "foodRequired" : {
+    "BOA" : 3,
+    "WOLF" : 8,
+    "FOX":  2,
+    "BEAR": 80,
+    "EAGLE": 1,
+    "HORSE": 60,
+    "DEER": 50,
+    "RABBIT": 0.45,
+    "MOUSE": 0.01,
+    "GOAT" : 10,
+    "SHEEP": 15,
+    "BOAR": 50,
+    "BUFFALO": 100,
+    "DUCK": 0.15,
+    "CATERPILLAR": 0.01,
+    "PLANTS" : 0
+  }
+}
