@@ -1,11 +1,9 @@
 package services;
 
-import data.Animal;
-import data.AnimalType;
+import data.*;
 import factories.AnimalFactory;
 
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class AddNewAnimalsService {
 
@@ -26,7 +24,6 @@ public class AddNewAnimalsService {
             Animal animal = animalFactory.createAnimal(whom);
             animal.setMove(true);
             where.add(animal);
-//            System.out.println("Родился " + whom);
             currentPopulation = where.size();
         }
         return currentPopulation;

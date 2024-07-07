@@ -13,7 +13,6 @@ import static main.Resources.*;
 
 public class Main {
     public static void main(String[] args) throws IOException {
-
         IslandPrototype islandPrototype = new ObjectMapper()
                 .readValue(Path.of(ISLAND_CONFIG.getValue()).toFile(), IslandPrototype.class);
         islandPrototype.setChancesToEatInfo(CHANCE_TO_EAT.getValue());
@@ -36,9 +35,13 @@ public class Main {
         ExecutorService executors = Executors.newCachedThreadPool();
         PrintStatisticsService printStatisticsService = PrintStatisticsService.getInstance();
 
-       Executors.newScheduledThreadPool(1).scheduleAtFixedRate(new RunnerTasks(
+//        Жизненный цикл острова
+
+        Executors.newScheduledThreadPool(1).scheduleAtFixedRate(new RunnerTasks(
                 locations, plantsGrowthService, movingService, feedService, breedingService, executors
         ), 0, 1, TimeUnit.SECONDS);
+
+//        Вывод информации о популяции острова
 
         Executors.newScheduledThreadPool(1).scheduleAtFixedRate(() -> {
             try {

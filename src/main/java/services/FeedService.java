@@ -26,7 +26,6 @@ public class FeedService {
     }
 
     public void feed(Location location) {
-//        System.out.println("работа потока " + Thread.currentThread().getName());
         List<Animal> animals = new ArrayList<>(location.getPopulation().values().stream()
                 .flatMap(Collection::stream)
                 .toList());
@@ -47,7 +46,6 @@ public class FeedService {
 
                 if (animal.getSatiation() <= 0) {
                     animal.setAlive(false);
-//                    System.out.println(animal + " умер от голода!");
                 }
             }
         }
@@ -62,13 +60,11 @@ public class FeedService {
         float rnd = randomService.nextFloat(who.getFoodRequired());
         float plantsEating = changePlantsService.decreasePlants(where, rnd);
         who.setSatiation(who.getSatiation() + plantsEating);
-//        System.out.println(who + " съел " + plantsEating + " растений");
     }
 
     public void eatPrey(Animal who, Animal prey) {
         prey.setAlive(false);
         who.setSatiation(who.getSatiation() + prey.getWeight());
-//        System.out.println(who + " съел " + prey);
     }
 
     private Map<AnimalType, Map<AnimalType, Integer>> filter(

@@ -20,6 +20,5 @@ public class MoveAnimalService {
 
         animal.setCoordinateX(to.getX());
         animal.setCoordinateY(to.getY());
-//        System.out.println(animal + " переместился из " + from + " в " + to);
     }
 }

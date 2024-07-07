@@ -37,7 +37,6 @@ public class MovingService {
             }
             animal.setSatiation(animal.getSatiation() - (animal.getFoodRequired() / 1.5F));
             animal.setMove(true);
-//            System.out.println("После перемещения : " + animal);
         } else if (!animal.isMove()) animal.setAlive(false);
     }
 }
