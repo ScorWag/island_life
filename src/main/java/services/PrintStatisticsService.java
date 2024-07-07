@@ -14,13 +14,8 @@ import java.util.concurrent.CopyOnWriteArrayList;
 
 public class PrintStatisticsService {
     private static PrintStatisticsService printStatisticsService;
-    private final ObjectMapper objectMapper;
 
-    private PrintStatisticsService() {
-        objectMapper = new ObjectMapper();
-        objectMapper.configure(SerializationFeature.INDENT_OUTPUT, true);
-        objectMapper.configure(SerializationFeature.FLUSH_AFTER_WRITE_VALUE, true);
-    }
+    private PrintStatisticsService() {}
 
     public static PrintStatisticsService getInstance() {
         if (printStatisticsService == null) printStatisticsService = new PrintStatisticsService();

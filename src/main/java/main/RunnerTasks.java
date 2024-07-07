@@ -9,14 +9,6 @@ import java.util.List;
 import java.util.concurrent.*;
 
 public class RunnerTasks implements Runnable {
-    private long start;
-    private long resetFlagsMoveTime;
-    private long firstCleanTime = 0;
-    private long secondCleanTime = 0;
-    private long createPopulationsListTime;
-    private long feedTime;
-    private long breedTime;
-    private long moveTime;
     private List<Location> locations;
     private final PlantsGrowthService plantsGrowthService;
     private final MovingService movingService;
@@ -38,12 +30,7 @@ public class RunnerTasks implements Runnable {
 
     @Override
     public void run() {
-//        System.out.println("-----------------------------------\n");
-//        System.out.println("Начало цикла\n");
-//        System.out.println("-----------------------------------\n");
-//
-//        System.out.println("Сброс флагов передвижения\n");
-        start = System.currentTimeMillis();
+//        Сброс флагов передвижения
 
         List<Callable<Void>> resetFlagsMoveTasks = new ArrayList<>();
         for (Location location : locations) {
@@ -56,12 +43,8 @@ public class RunnerTasks implements Runnable {
             throw new RuntimeException(e);
         }
 
-        resetFlagsMoveTime = System.currentTimeMillis() - start;
-//        System.out.println("-----------------------------------\n");
-//
-//
-//        System.out.println("Первое очищение острова от мертвых животных\n");
-        start = System.currentTimeMillis();
+//        Первое очищение острова от мертвых животных
+
         List<Callable<Void>> cleaningTasks1 = new ArrayList<>();
         for (Location location : locations) {
             cleaningTasks1.add(new CleanDeadAnimalsTask(location));
@@ -73,11 +56,7 @@ public class RunnerTasks implements Runnable {
             throw new RuntimeException(e);
         }
 
-        firstCleanTime = System.currentTimeMillis() - start;
-//        System.out.println("-----------------------------------\n");
-//
-//        System.out.println("Кормление животных\n");
-        start = System.currentTimeMillis();
+//        Кормление животных
 
         List<Callable<Void>> feedTasks = new ArrayList<>();
 
@@ -91,11 +70,7 @@ public class RunnerTasks implements Runnable {
             throw new RuntimeException(e);
         }
 
-        feedTime = System.currentTimeMillis() - start;
-//        System.out.println("-----------------------------------\n");
-//
-//        System.out.println("Второе очищение острова от мертвых животных\n");
-        start = System.currentTimeMillis();
+//        Второе очищение острова от мертвых животных
 
         List<Callable<Void>> cleaningTasks2 = new ArrayList<>();
 
@@ -109,11 +84,7 @@ public class RunnerTasks implements Runnable {
             throw new RuntimeException(e);
         }
 
-        secondCleanTime = System.currentTimeMillis() - start;
-//        System.out.println("-----------------------------------\n");
-//
-//        System.out.println("Создание списка популяций\n");
-        start = System.currentTimeMillis();
+//        Создание списка популяций
 
         CopyOnWriteArrayList<CopyOnWriteArrayList<Animal>> populationsList = new CopyOnWriteArrayList<>();
         List<Callable<Void>> createPopulationsListTasks = new ArrayList<>();
@@ -128,11 +99,7 @@ public class RunnerTasks implements Runnable {
             throw new RuntimeException(e);
         }
 
-        createPopulationsListTime = System.currentTimeMillis() - start;
-//        System.out.println("-----------------------------------\n");
-//
-//        System.out.println("Размножение животных\n");
-        start = System.currentTimeMillis();
+//        Размножение животных
 
         List<Callable<Void>> breedTasks = new ArrayList<>();
 
@@ -146,11 +113,8 @@ public class RunnerTasks implements Runnable {
             throw new RuntimeException(e);
         }
 
-        breedTime = System.currentTimeMillis() - start;
-//        System.out.println("-----------------------------------\n");
-//
-//        System.out.println("Перемещение животных\n");
-        start = System.currentTimeMillis();
+
+//        Перемещение животных
 
         List<Callable<Void>> moveTasks = new ArrayList<>();
 
@@ -164,25 +128,9 @@ public class RunnerTasks implements Runnable {
             throw new RuntimeException(e);
         }
 
-        moveTime = System.currentTimeMillis() - start;
-//        System.out.println("-----------------------------------\n");
-//
-//        System.out.println("Рост растительности\n");
+//        Рост растительности
 
         plantsGrowthService.plantsGrowthAllLocations(locations);
 
-//        System.out.println("-----------------------------------\n");
-//
-//        System.out.println("Сброс флагов передвижения занял " + resetFlagsMoveTime + " ms");
-//        System.out.println("Очищение острова от мертвых животных заняло " + firstCleanTime + " ms");
-//        System.out.println("Кормление животных заняло " + feedTime + " ms");
-//        System.out.println("Очищение острова от мертвых животных заняло " + secondCleanTime + " ms");
-//        System.out.println("Создание списка всех популяций заняло " + createPopulationsListTime + " ms");
-//        System.out.println("Размножение животных заняло " + breedTime + " ms");
-//        System.out.println("Перемещение животных заняло " + moveTime + " ms");
-//
-//
-//
-//        System.out.println("Конец цикла\n");
     }
 }

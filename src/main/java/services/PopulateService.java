@@ -2,6 +2,7 @@ package services;
 
 import data.Animal;
 import data.AnimalType;
+import factories.AnimalFactory;
 import main.*;
 
 import java.util.Map;

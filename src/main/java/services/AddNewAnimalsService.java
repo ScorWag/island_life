@@ -2,7 +2,7 @@ package services;
 
 import data.Animal;
 import data.AnimalType;
-import main.AnimalFactory;
+import factories.AnimalFactory;
 
 import java.util.List;
 import java.util.Map;

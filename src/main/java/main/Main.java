@@ -13,21 +13,10 @@ import static main.Resources.*;
 
 public class Main {
     public static void main(String[] args) throws IOException {
-        String islandConfigFile = ISLAND_CONFIG.getValue();
-        String chanceToEatFile = CHANCE_TO_EAT.getValue();
-        long start;
-        long preparationTime;
-
-
-//        System.out.println("-----------------------------------\n");
-//
-//        System.out.println("Подготовка\n");
-//
-//        start = System.currentTimeMillis();
 
         IslandPrototype islandPrototype = new ObjectMapper()
-                .readValue(Path.of(islandConfigFile).toFile(), IslandPrototype.class);
-        islandPrototype.setChancesToEatInfo(chanceToEatFile);
+                .readValue(Path.of(ISLAND_CONFIG.getValue()).toFile(), IslandPrototype.class);
+        islandPrototype.setChancesToEatInfo(CHANCE_TO_EAT.getValue());
 
         Island island = new Island(islandPrototype);
 
@@ -46,9 +35,6 @@ public class Main {
         BreedingService breedingService = new BreedingService(island.getCapacityLocation());
         ExecutorService executors = Executors.newCachedThreadPool();
         PrintStatisticsService printStatisticsService = PrintStatisticsService.getInstance();
-
-//        preparationTime = System.currentTimeMillis() - start;
-//        System.out.println("Подготовка заняла " + preparationTime  + " ms");
 
        Executors.newScheduledThreadPool(1).scheduleAtFixedRate(new RunnerTasks(
                 locations, plantsGrowthService, movingService, feedService, breedingService, executors
