@@ -9,6 +9,7 @@ import java.util.Map;
 
 @Getter
 @ToString
+@EqualsAndHashCode
 public class Island {
     private final int length;
     private final int width;

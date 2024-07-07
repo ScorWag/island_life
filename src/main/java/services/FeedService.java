@@ -15,14 +15,14 @@ public class FeedService {
     @Getter
     private final Map<AnimalType, Map<AnimalType, Integer>> chancesToEatInfo;
     private final RandomService randomService;
-    private final ChangePlantsService changePlantsService;
+    private final EatAnimalService eatAnimalService;
 
     public FeedService(Island island) {
         this.island = island;
         searchingFoodService = new SearchingFoodService();
         chancesToEatInfo = filter(island.getChancesToEatInfo());
         randomService = RandomService.getInstance();
-        changePlantsService = ChangePlantsService.getInstance();
+        eatAnimalService = EatAnimalService.getInstance();
     }
 
     public void feed(Location location) {
@@ -40,8 +40,8 @@ public class FeedService {
                         randomService.isSuccess(getChancesToEatInfo().get(animal.getAnimalType()).get(typePrey.get()))) {
                     if (!typePrey.get().equals(AnimalType.PLANTS)) {
                         prey = location.getPopulation().get(typePrey.get()).get(0);
-                        eatPrey(animal, prey);
-                    } else eatPlants(animal, location);
+                        eatAnimalService.eatPrey(animal, prey);
+                    } else eatAnimalService.eatPlants(animal, location);
                 }
 
                 if (animal.getSatiation() <= 0) {
@@ -56,16 +56,7 @@ public class FeedService {
         return searchingFoodService.chooseAvailableFoodType(where, preysListInfo);
     }
 
-    public void eatPlants(Animal who, Location where) {
-        float rnd = randomService.nextFloat(who.getFoodRequired());
-        float plantsEating = changePlantsService.decreasePlants(where, rnd);
-        who.setSatiation(who.getSatiation() + plantsEating);
-    }
 
-    public void eatPrey(Animal who, Animal prey) {
-        prey.setAlive(false);
-        who.setSatiation(who.getSatiation() + prey.getWeight());
-    }
 
     private Map<AnimalType, Map<AnimalType, Integer>> filter(
             Map<AnimalType, Map<AnimalType, Integer>> chancesToEatForAllInfo) {

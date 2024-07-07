@@ -6,6 +6,7 @@ import data.*;
 import prototypes.AnimalPrototype;
 
 import java.io.IOException;
+import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.HashMap;
 import java.util.List;
@@ -88,8 +89,9 @@ public class AnimalFactory {
 
     private void setAnimalPrototypes(String animalsJsonFile) {
         try {
-            List<AnimalPrototype> animalJsonList = new ObjectMapper().readValue(Path.of(animalsJsonFile).toFile(),
-                    new TypeReference<List<AnimalPrototype>>() {});
+            List<AnimalPrototype> animalJsonList = new ObjectMapper().readValue(
+                    Files.readAllBytes(Path.of(animalsJsonFile)), new TypeReference<List<AnimalPrototype>>() {});
+
             for (AnimalPrototype animalJson : animalJsonList) {
                 animalPrototypes.put(animalJson.getAnimalType(), animalJson);
             }

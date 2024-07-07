@@ -5,6 +5,7 @@ import prototypes.IslandPrototype;
 import services.*;
 
 import java.io.IOException;
+import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.*;
 import java.util.concurrent.*;
@@ -14,7 +15,7 @@ import static main.Resources.*;
 public class Main {
     public static void main(String[] args) throws IOException {
         IslandPrototype islandPrototype = new ObjectMapper()
-                .readValue(Path.of(ISLAND_CONFIG.getValue()).toFile(), IslandPrototype.class);
+                .readValue(Files.readAllBytes(Path.of(ISLAND_CONFIG.getValue())), IslandPrototype.class);
         islandPrototype.setChancesToEatInfo(CHANCE_TO_EAT.getValue());
 
         Island island = new Island(islandPrototype);

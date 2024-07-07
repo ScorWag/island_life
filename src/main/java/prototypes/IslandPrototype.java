@@ -8,6 +8,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import java.io.IOException;
+import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.Map;
 
@@ -23,7 +24,7 @@ public class IslandPrototype {
 
 
     public void setChancesToEatInfo(String chanceToEatFile) throws IOException {
-        chancesToEatInfo = new ObjectMapper().readValue(Path.of(chanceToEatFile).toFile(),
+        chancesToEatInfo = new ObjectMapper().readValue(Files.readAllBytes(Path.of(chanceToEatFile)),
                 new TypeReference<Map<AnimalType, Map<AnimalType, Integer>>>() {});
     }
 }
