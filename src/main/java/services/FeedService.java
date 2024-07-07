@@ -37,7 +37,8 @@ public class FeedService {
                 Animal prey;
                 typePrey = determineTypeOfPrey(animal, location);
                 if (typePrey.isPresent() &&
-                        randomService.isSuccess(getChancesToEatInfo().get(animal.getAnimalType()).get(typePrey.get()))) {
+                        randomService.isSuccess(getChancesToEatInfo()
+                                .get(animal.getAnimalPrototype().getAnimalType()).get(typePrey.get()))) {
                     if (!typePrey.get().equals(AnimalType.PLANTS)) {
                         prey = location.getPopulation().get(typePrey.get()).get(0);
                         eatAnimalService.eatPrey(animal, prey);
@@ -52,7 +53,8 @@ public class FeedService {
     }
 
     public Optional<AnimalType> determineTypeOfPrey(Animal whom, Location where) {
-        List<AnimalType> preysListInfo = chancesToEatInfo.get(whom.getAnimalType()).keySet().stream().toList();
+        List<AnimalType> preysListInfo = chancesToEatInfo
+                .get(whom.getAnimalPrototype().getAnimalType()).keySet().stream().toList();
         return searchingFoodService.chooseAvailableFoodType(where, preysListInfo);
     }
 

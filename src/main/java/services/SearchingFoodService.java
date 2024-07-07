@@ -35,7 +35,6 @@ public class SearchingFoodService {
                     return Optional.of(preyAnimalType);
                 }
             }
-
             foodListInfo.remove(preyAnimalType);
         }
 

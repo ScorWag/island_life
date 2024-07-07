@@ -26,14 +26,15 @@ public class MoveAnimalService {
 
     public void move(Animal animal) {
         Location start = island.getIslandMap()[animal.getCoordinateX()][animal.getCoordinateY()];
-        Stack<Location> way = buildWayService.buildWay(animal.getMaxSpeed(), start, island.getIslandMap());
+        Stack<Location> way = buildWayService
+                .buildWay(animal.getAnimalPrototype().getMaxSpeed(), start, island.getIslandMap());
         Location locationMove;
 
         while (!way.isEmpty()) {
             locationMove = way.pop();
             synchronized (locationMove) {
-                if (locationMove.getPopulation().get(animal.getAnimalType()).size() <
-                        island.getCapacityLocation().get(animal.getAnimalType())) {
+                if (locationMove.getPopulation().get(animal.getAnimalPrototype().getAnimalType()).size() <
+                        island.getCapacityLocation().get(animal.getAnimalPrototype().getAnimalType())) {
                     moving(animal, start, locationMove);
                     return;
                 }
@@ -43,8 +44,8 @@ public class MoveAnimalService {
 
 
     private void moving(Animal animal, Location from, Location to) {
-        from.getPopulation().get(animal.getAnimalType()).remove(animal);
-        to.getPopulation().get(animal.getAnimalType()).add(animal);
+        from.getPopulation().get(animal.getAnimalPrototype().getAnimalType()).remove(animal);
+        to.getPopulation().get(animal.getAnimalPrototype().getAnimalType()).add(animal);
 
         animal.setCoordinateX(to.getX());
         animal.setCoordinateY(to.getY());

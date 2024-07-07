@@ -1,7 +1,5 @@
 package services;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.SerializationFeature;
 import data.Animal;
 import data.AnimalType;
 import main.Location;

@@ -37,50 +37,35 @@ public class AnimalFactory {
 
         switch (type) {
 
-            case WOLF -> animal = new Wolf(prototype.getWeight(), prototype.getMaxSpeed(),
-                    prototype.getSatiation(), prototype.getFoodRequired());
+            case WOLF -> animal = new Wolf(prototype);
 
-            case BOA -> animal = new Boa(prototype.getWeight(), prototype.getMaxSpeed(),
-                    prototype.getSatiation(), prototype.getFoodRequired());
+            case BOA -> animal = new Boa(prototype);
 
-            case FOX -> animal = new Fox(prototype.getWeight(), prototype.getMaxSpeed(),
-                    prototype.getSatiation(), prototype.getFoodRequired());
+            case FOX -> animal = new Fox(prototype);
 
-            case BEAR -> animal = new Bear(prototype.getWeight(), prototype.getMaxSpeed(),
-                    prototype.getSatiation(), prototype.getFoodRequired());
+            case BEAR -> animal = new Bear(prototype);
 
-            case EAGLE -> animal = new Eagle(prototype.getWeight(), prototype.getMaxSpeed(),
-                    prototype.getSatiation(), prototype.getFoodRequired());
+            case EAGLE -> animal = new Eagle(prototype);
 
-            case HORSE -> animal = new Horse(prototype.getWeight(), prototype.getMaxSpeed(),
-                    prototype.getSatiation(), prototype.getFoodRequired());
+            case HORSE -> animal = new Horse(prototype);
 
-            case DEER -> animal = new Deer(prototype.getWeight(), prototype.getMaxSpeed(),
-                    prototype.getSatiation(), prototype.getFoodRequired());
+            case DEER -> animal = new Deer(prototype);
 
-            case RABBIT -> animal = new Rabbit(prototype.getWeight(), prototype.getMaxSpeed(),
-                    prototype.getSatiation(), prototype.getFoodRequired());
+            case RABBIT -> animal = new Rabbit(prototype);
 
-            case MOUSE -> animal = new Mouse(prototype.getWeight(), prototype.getMaxSpeed(),
-                    prototype.getSatiation(), prototype.getFoodRequired());
+            case MOUSE -> animal = new Mouse(prototype);
 
-            case GOAT -> animal = new Goat(prototype.getWeight(), prototype.getMaxSpeed(),
-                    prototype.getSatiation(), prototype.getFoodRequired());
+            case GOAT -> animal = new Goat(prototype);
 
-            case SHEEP -> animal = new Sheep(prototype.getWeight(), prototype.getMaxSpeed(),
-                    prototype.getSatiation(), prototype.getFoodRequired());
+            case SHEEP -> animal = new Sheep(prototype);
 
-            case BOAR -> animal = new Boar(prototype.getWeight(), prototype.getMaxSpeed(),
-                    prototype.getSatiation(), prototype.getFoodRequired());
+            case BOAR -> animal = new Boar(prototype);
 
-            case BUFFALO -> animal = new Buffalo(prototype.getWeight(), prototype.getMaxSpeed(),
-                    prototype.getSatiation(), prototype.getFoodRequired());
+            case BUFFALO -> animal = new Buffalo(prototype);
 
-            case DUCK -> animal = new Duck(prototype.getWeight(), prototype.getMaxSpeed(),
-                    prototype.getSatiation(), prototype.getFoodRequired());
+            case DUCK -> animal = new Duck(prototype);
 
-            case CATERPILLAR -> animal = new Caterpillar(prototype.getWeight(), prototype.getMaxSpeed(),
-                    prototype.getSatiation(), prototype.getFoodRequired());
+            case CATERPILLAR -> animal = new Caterpillar(prototype);
 
         }
 

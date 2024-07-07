@@ -20,13 +20,13 @@ public class EatAnimalService {
 
 
     public void eatPlants(Animal who, Location where) {
-        float rnd = randomService.nextFloat(who.getFoodRequired());
+        float rnd = randomService.nextFloat(who.getAnimalPrototype().getFoodRequired());
         float plantsEating = changePlantsService.decreasePlants(where, rnd);
         who.setSatiation(who.getSatiation() + plantsEating);
     }
 
     public void eatPrey(Animal who, Animal prey) {
         prey.setAlive(false);
-        who.setSatiation(who.getSatiation() + prey.getWeight());
+        who.setSatiation(who.getSatiation() + prey.getAnimalPrototype().getWeight());
     }
 }

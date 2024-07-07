@@ -22,14 +22,14 @@ public class BreedingService {
         if (!population.isEmpty()) {
             int currentPopulation = population.size();
             Animal animal = population.get(0);
-            int maxAnimalsInLocation = capacityLocation.get(animal.getAnimalType());
+            int maxAnimalsInLocation = capacityLocation.get(animal.getAnimalPrototype().getAnimalType());
             List<Animal> freeAnimals = new ArrayList<>(population);
 
             while (freeAnimals.size() > 1 && currentPopulation < maxAnimalsInLocation) {
                 freeAnimals.remove(0);
                 freeAnimals.remove(0);
                 int rnd = randomService.nextInt(2);
-                currentPopulation = addNewAnimalsService.addNewAnimals(animal.getAnimalType(), population, rnd);
+                currentPopulation = addNewAnimalsService.addNewAnimals(animal.getAnimalPrototype().getAnimalType(), population, rnd);
             }
         }
     }

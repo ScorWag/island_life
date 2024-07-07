@@ -2,90 +2,75 @@
   "animalType" : "WOLF",
   "weight" : 50.0,
   "maxSpeed" : 3,
-  "satiation" : 0,
   "foodRequired" : 8
 }, {
   "animalType" : "BOA",
   "weight" : 15.0,
   "maxSpeed" : 1,
-  "satiation" : 0,
   "foodRequired" : 3
 }, {
   "animalType" : "FOX",
   "weight" : 8.0,
   "maxSpeed" : 2,
-  "satiation" : 0,
   "foodRequired" : 2
 }, {
   "animalType" : "BEAR",
   "weight" : 500.0,
   "maxSpeed" : 2,
-  "satiation" : 0,
   "foodRequired" : 80
 }, {
   "animalType" : "EAGLE",
   "weight" : 6.0,
   "maxSpeed" : 3,
-  "satiation" : 0,
   "foodRequired" : 1
 }, {
   "animalType" : "HORSE",
   "weight" : 400.0,
   "maxSpeed" : 4,
-  "satiation" : 0,
   "foodRequired" : 60
 }, {
   "animalType" : "DEER",
   "weight" : 300.0,
   "maxSpeed" : 4,
-  "satiation" : 0,
   "foodRequired" : 50
 }, {
   "animalType" : "RABBIT",
   "weight" : 2.0,
   "maxSpeed" : 2,
-  "satiation" : 0,
   "foodRequired" : 0.45
 }, {
   "animalType" : "MOUSE",
   "weight" : 0.05,
   "maxSpeed" : 1,
-  "satiation" : 0,
   "foodRequired" : 0.01
 }, {
   "animalType" : "GOAT",
   "weight" : 60.0,
   "maxSpeed" : 3,
-  "satiation" : 0,
   "foodRequired" : 10
 }, {
   "animalType" : "SHEEP",
   "weight" : 70.0,
   "maxSpeed" : 3,
-  "satiation" : 0,
   "foodRequired" : 15
 }, {
   "animalType" : "BOAR",
   "weight" : 400.0,
   "maxSpeed" : 2,
-  "satiation" : 0,
   "foodRequired" : 50
 }, {
   "animalType" : "BUFFALO",
   "weight" : 700.0,
   "maxSpeed" : 3,
-  "satiation" : 0,
   "foodRequired" : 100
 }, {
   "animalType" : "DUCK",
   "weight" : 1.0,
   "maxSpeed" : 4,
-  "satiation" : 0,
   "foodRequired" : 0.15
 }, {
   "animalType" : "CATERPILLAR",
   "weight" : 0.01,
   "maxSpeed" : 0,
-  "satiation" : 0,
   "foodRequired" : 0.01
 } ]

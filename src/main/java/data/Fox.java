@@ -1,9 +1,11 @@
 package data;
 
+import prototypes.AnimalPrototype;
+
 public class Fox extends Animal {
     private static int countInstances = 0;
-    public Fox(float weight, int maxSpeed, float satiation, float foodRequired) {
-        super(AnimalType.FOX, AnimalType.FOX + " " + ++countInstances,
-                weight, maxSpeed,  satiation, foodRequired);
+
+    public Fox(AnimalPrototype animalPrototype) {
+        super(animalPrototype, animalPrototype.getAnimalType() + " " + ++countInstances);
     }
 }
