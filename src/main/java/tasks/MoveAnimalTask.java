@@ -3,7 +3,7 @@ package tasks;
 import data.Animal;
 import lombok.AllArgsConstructor;
 import main.Location;
-import services.MovingService;
+import services.moving.MovingService;
 
 import java.util.ArrayList;
 import java.util.Collection;

@@ -1,7 +1,8 @@
-package services;
+package services.moving;
 
 import lombok.Getter;
 import main.Location;
+import services.RandomService;
 
 @Getter
 public class ChooseDirectionService {

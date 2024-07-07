@@ -2,6 +2,9 @@ package main;
 
 import data.Animal;
 import services.*;
+import services.breeding.BreedingService;
+import services.feeding.FeedService;
+import services.moving.MovingService;
 import tasks.*;
 
 import java.util.ArrayList;

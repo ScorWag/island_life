@@ -1,8 +1,9 @@
-package services;
+package services.feeding;
 
 import data.*;
 import lombok.Getter;
 import main.*;
+import services.RandomService;
 
 import java.util.*;
 import java.util.stream.Collectors;

@@ -1,4 +1,4 @@
-package services;
+package services.moving;
 
 import data.Animal;
 import main.Island;

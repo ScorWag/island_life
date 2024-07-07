@@ -2,7 +2,7 @@ package tasks;
 
 import data.Animal;
 import lombok.AllArgsConstructor;
-import services.BreedingService;
+import services.breeding.BreedingService;
 
 import java.util.concurrent.Callable;
 import java.util.concurrent.CopyOnWriteArrayList;

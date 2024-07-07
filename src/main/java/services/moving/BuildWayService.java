@@ -1,6 +1,7 @@
-package services;
+package services.moving;
 
 import main.Location;
+import services.RandomService;
 
 import java.util.Stack;
 

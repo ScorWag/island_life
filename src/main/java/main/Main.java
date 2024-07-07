@@ -3,6 +3,9 @@ package main;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import prototypes.IslandPrototype;
 import services.*;
+import services.breeding.BreedingService;
+import services.feeding.FeedService;
+import services.moving.MovingService;
 
 import java.io.IOException;
 import java.nio.file.Files;

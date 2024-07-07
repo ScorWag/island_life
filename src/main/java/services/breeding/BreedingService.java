@@ -1,7 +1,8 @@
-package services;
+package services.breeding;
 
 import data.Animal;
 import data.AnimalType;
+import services.RandomService;
 
 import java.util.ArrayList;
 import java.util.List;

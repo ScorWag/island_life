@@ -1,7 +1,9 @@
-package services;
+package services.feeding;
 
 import data.Animal;
 import main.Location;
+import services.ChangePlantsService;
+import services.RandomService;
 
 public class EatAnimalService {
     private static EatAnimalService eatAnimalService;

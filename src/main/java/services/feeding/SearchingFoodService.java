@@ -1,8 +1,9 @@
-package services;
+package services.feeding;
 
 import data.Animal;
 import data.AnimalType;
 import main.Location;
+import services.RandomService;
 
 import java.util.*;
 import java.util.concurrent.*;

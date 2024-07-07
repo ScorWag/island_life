@@ -1,7 +1,7 @@
 package tasks;
 
 import main.Location;
-import services.FeedService;
+import services.feeding.FeedService;
 
 import java.util.concurrent.Callable;
 

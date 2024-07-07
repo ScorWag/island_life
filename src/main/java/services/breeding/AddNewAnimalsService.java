@@ -1,4 +1,4 @@
-package services;
+package services.breeding;
 
 import data.*;
 import factories.AnimalFactory;
