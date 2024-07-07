@@ -10,7 +10,7 @@ public class MovingService {
         moveAnimalService = MoveAnimalService.getInstance(island);
     }
 
-    public void move (Animal animal) {
+    public void move(Animal animal) {
         if (animal.isAlive() && animal.getSatiation() >= 0 && !animal.isMove()) {
             moveAnimalService.move(animal);
 

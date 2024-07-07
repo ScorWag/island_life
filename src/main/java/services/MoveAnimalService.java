@@ -34,7 +34,7 @@ public class MoveAnimalService {
             synchronized (locationMove) {
                 if (locationMove.getPopulation().get(animal.getAnimalType()).size() <
                         island.getCapacityLocation().get(animal.getAnimalType())) {
-                    moveAnimalService.move(animal, start, locationMove);
+                    moving(animal, start, locationMove);
                     return;
                 }
             }
@@ -42,7 +42,7 @@ public class MoveAnimalService {
     }
 
 
-    private void move(Animal animal, Location from, Location to) {
+    private void moving(Animal animal, Location from, Location to) {
         from.getPopulation().get(animal.getAnimalType()).remove(animal);
         to.getPopulation().get(animal.getAnimalType()).add(animal);
 
