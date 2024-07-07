@@ -22,7 +22,6 @@ public class Main {
         islandPrototype.setChancesToEatInfo(CHANCE_TO_EAT.getValue());
 
         Island island = new Island(islandPrototype);
-
         island.init();
 
         Location[][] islandMap = island.getIslandMap();
@@ -32,24 +31,20 @@ public class Main {
             locations.addAll(Arrays.asList(value).subList(0, islandMap[0].length));
         }
 
-        PlantsGrowthService plantsGrowthService = PlantsGrowthService.getInstance();
-        MovingService movingService = new MovingService(island);
-        FeedService feedService = new FeedService(island);
-        BreedingService breedingService = new BreedingService(island.getCapacityLocation());
+        ServicesContainer servicesContainer = new ServicesContainer(island);
         ExecutorService executors = Executors.newCachedThreadPool();
-        PrintStatisticsService printStatisticsService = PrintStatisticsService.getInstance();
 
 //        Жизненный цикл острова
 
         Executors.newScheduledThreadPool(1).scheduleAtFixedRate(new RunnerTasks(
-                locations, plantsGrowthService, movingService, feedService, breedingService, executors
+                locations, servicesContainer, executors
         ), 0, 1, TimeUnit.SECONDS);
 
 //        Вывод информации о популяции острова
 
         Executors.newScheduledThreadPool(1).scheduleAtFixedRate(() -> {
             try {
-                printStatisticsService.printAllPopulations(locations);
+                servicesContainer.getPrintStatisticsService().printAllPopulations(locations);
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }

@@ -20,13 +20,12 @@ public class RunnerTasks implements Runnable {
     private final ExecutorService executors;
 
 
-    public RunnerTasks(List<Location> locations, PlantsGrowthService plantsGrowthService, MovingService movingService,
-                       FeedService feedService, BreedingService breedingService, ExecutorService executors) {
+    public RunnerTasks(List<Location> locations, ServicesContainer servicesContainer, ExecutorService executors) {
         this.locations = locations;
-        this.plantsGrowthService = plantsGrowthService;
-        this.movingService = movingService;
-        this.feedService = feedService;
-        this.breedingService = breedingService;
+        this.plantsGrowthService = servicesContainer.getPlantsGrowthService();
+        this.movingService = servicesContainer.getMovingService();
+        this.feedService = servicesContainer.getFeedService();
+        this.breedingService = servicesContainer.getBreedingService();
         this.executors = executors;
     }
 
